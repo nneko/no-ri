@@ -1,37 +1,37 @@
 import Models from "./models.nbs"
 import Services from "./services.nbs"
 
-module Application
+module Application begin
 
-  private def print_tasks(
+  prv def print_tasks(
     tasks: sequence<Models::Task>
   ) do
 
-    for task in tasks
+    for task in tasks do
       print(task.describe())
     end
 
   end
 
-  public async def main do
+  pub async def main do
 
     print("Welcome to nb!")
 
-    let service = Services::TaskService.new()
+    const service = Services::TaskService.new()
 
     try
 
-      let first = service.add(
+      const first = service.add(
         id: "task-001",
         title: "Design the nb language"
       )
 
-      let second = service.add(
+      const second = service.add(
         id: "task-002",
         title: "Implement the compiler"
       )
 
-      service.complete!(first.identifier)
+      service.compconste!(first.identifier)
 
       print(
         "Total tasks: \(service.count)"

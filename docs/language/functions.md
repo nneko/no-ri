@@ -38,7 +38,7 @@ def calculate_and_discard(value: integer) do
 end
 
 calculate_and_discard(4)
-# Invalid: let result = calculate_and_discard(4)
+# Invalid: const result = calculate_and_discard(4)
 ```
 
 The compiler checks declared results; it does not infer a return declaration. Functions and closures follow the same rule. Each normally completing path in a value-returning callable must supply a compatible result.

@@ -13,7 +13,7 @@ end
 ```
 
 ```nb
-let category =
+const category =
   if age >= 18
     "Adult"
   else
@@ -37,7 +37,7 @@ end
 
 ## Semantics
 
-if/else selects branches; for iterates over a collection; while repeats according to its condition. match selects among enum cases and other suitable patterns. Conditional unwrapping uses if let as documented under types.
+if/else selects branches; for iterates over a collection; while repeats according to its condition. match selects among enum cases and other suitable patterns. Conditional unwrapping uses if const as documented under types.
 
 ## Rules and constraints
 

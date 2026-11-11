@@ -5,13 +5,13 @@ Scope-exit cleanup releases resources deterministically.
 ## Syntax and examples
 
 ```nb
-let file = File.open("example.txt")
+const file = File.open("example.txt")
 
 defer do
   file.close()
 end
 
-let contents = file.read()
+const contents = file.read()
 ```
 
 ## Semantics

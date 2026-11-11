@@ -6,7 +6,7 @@ Explicit unsafe scopes authorize low-level operations that require additional pr
 
 ```nb
 unsafe do
-  let pointer = address(buffer)
+  const pointer = address(buffer)
 end
 ```
 

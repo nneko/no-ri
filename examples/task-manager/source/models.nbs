@@ -1,12 +1,12 @@
-module Models
+module Models begin
 
-  public enum Status
+  pub enum Status
 
     case pending
     case active
     case completed
 
-    public computed label: string do
+    pub computed label: string do
 
       match self
         case .pending then "Pending"
@@ -18,29 +18,29 @@ module Models
 
   end
 
-  public protocol Identifiable
+  pub protocol Identifiable
 
     def identifier -> string
 
   end
 
-  public struct Position
+  pub struct Position
 
-    public let x: float
-    public let y: float
+    pub let x: float
+    pub let y: float
 
-    public computed distance: float do
+    pub computed distance: float do
       (x * x + y * y).sqrt()
     end
 
   end
 
-  public class Task < Identifiable
+  pub class Task < Identifiable
 
-    private let id: string
+    prv let id: string
 
-    private var title_value: string
-    private var status_value: Status = .pending
+    prv var title_value: string
+    prv var status_value: Status = .pending
 
     def initial(
       @id,
@@ -52,11 +52,11 @@ module Models
 
     end
 
-    public def identifier -> string do
+    pub def identifier -> string do
       id
     end
 
-    public computed title: string do
+    pub computed title: string do
 
       get do
         title_value
@@ -68,19 +68,19 @@ module Models
 
     end
 
-    public computed status: Status do
+    pub computed status: Status do
       status_value
     end
 
-    public computed completed?: boolean do
+    pub computed completed?: boolean do
       status_value == .completed
     end
 
-    public def complete! do
+    pub def complete! do
       status_value = .completed
     end
 
-    public def describe -> string do
+    pub def describe -> string do
       "\(title) [\(status.label)]"
     end
 

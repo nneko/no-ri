@@ -5,9 +5,9 @@ Closures enclose executable code and can receive parameters. Their explicit retu
 ## Returned values
 
 ```nb
-let double = { |value: integer| value * 2 } -> integer
+const double = { |value: integer| value * 2 } -> integer
 
-let doubled = numbers.map(
+const doubled = numbers.map(
   { |value| value * 2 } -> integer
 )
 ```
@@ -17,7 +17,7 @@ let doubled = numbers.map(
 Parentheses can group the complete closure expression.
 
 ```nb
-let square = ({ |value: integer| value * value } -> integer)
+const square = ({ |value: integer| value * value } -> integer)
 ```
 
 ## Void closures

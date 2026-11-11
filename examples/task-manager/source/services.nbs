@@ -1,22 +1,22 @@
 import Models from "./models.nbs"
 
-module Services
+module Services begin
 
-  public enum TaskError
+  pub enum TaskError
 
     case not_found
     case invalid_title
 
   end
 
-  public class TaskService
+  pub class TaskService
 
-    private var tasks: sequence<Models::Task> = []
+    prv var tasks: sequence<Models::Task> = []
 
     def initial() state
     end
 
-    public def add(
+    pub def add(
       id: string,
       title: string
     ) -> Models::Task raises TaskError do
@@ -25,7 +25,7 @@ module Services
         raise TaskError.invalid_title
       end
 
-      let task = Models::Task.new(
+      const task = Models::Task.new(
         id:,
         title:
       )
@@ -36,7 +36,7 @@ module Services
 
     end
 
-    public def find(
+    pub def find(
       id: string
     ) -> Models::Task? do
 
@@ -46,11 +46,11 @@ module Services
 
     end
 
-    public def complete!(
+    pub def complete!(
       id: string
     ) raises TaskError do
 
-      let task = find(id)
+      const task = find(id)
 
       if task.nil?
         raise TaskError.not_found
@@ -60,11 +60,11 @@ module Services
 
     end
 
-    public computed count: integer do
+    pub computed count: integer do
       tasks.length
     end
 
-    public def all -> sequence<Models::Task> do
+    pub def all -> sequence<Models::Task> do
       tasks.copy()
     end
 

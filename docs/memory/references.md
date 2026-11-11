@@ -5,8 +5,8 @@ Explicit reference construction complements reference-oriented classes and borro
 ## Syntax and examples
 
 ```nb
-let reference = ref(buffer)
-let mutable_reference = ref(mut buffer)
+const reference = ref(buffer)
+const mutable_reference = ref(mut buffer)
 ```
 
 ## Semantics

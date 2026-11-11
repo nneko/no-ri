@@ -5,20 +5,20 @@ Protocols define behavioral contracts. A type may conform to multiple protocols.
 ## Syntax and examples
 
 ```nb
-public protocol Identifiable
+pub protocol Identifiable begin
   def identifier -> string
 end
 
-public protocol Printable
+pub protocol Printable begin
   def print
 end
 
 # Protocol conformance
-public class Task < Identifiable
-  private let id: string
+pub entity Task < Identifiable begin
+  prv let id: string
   def initial(@id) state
   end
-  public def identifier -> string do
+  pub def identifier -> string do
     id
   end
 end

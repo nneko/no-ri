@@ -22,7 +22,7 @@ end
 ```nb
 try
 
-  let result = divide(10.0, 2.0)
+  const result = divide(10.0, 2.0)
 
   print(result)
 
@@ -38,13 +38,13 @@ end
 ```
 
 ```nb
-let file = File.open("example.txt")
+const file = File.open("example.txt")
 
 defer do
   file.close()
 end
 
-let contents = file.read()
+const contents = file.read()
 ```
 
 ## Semantics

@@ -4,7 +4,7 @@ Execution support required by language capabilities.
 
 ## Behaviour
 
-Class references have managed lifetime semantics in ordinary application environments. Freestanding execution must not require a mandatory collector or general-purpose managed runtime. Ruby-independent programs do not require CRuby.
+Entity references have managed lifetime semantics in ordinary application environments. Freestanding execution must not require a mandatory collector or general-purpose managed runtime. Ruby-independent programs do not require CRuby.
 
 ## Specification in development
 

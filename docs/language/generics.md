@@ -9,12 +9,12 @@ def identity<T>(value: T) -> T do
   value
 end
 
-public struct Pair<T, U>
-  public let first: T
-  public let second: U
+pub value Pair<T, U>
+  pub const first: T
+  pub const second: U
 end
 
-let pair = Pair<integer, string>.new(
+const pair = Pair<integer, string>.initial(
   first: 10,
   second: "hello"
 )

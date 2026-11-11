@@ -16,7 +16,7 @@ def consume(value: take Buffer) do
 end
 
 unsafe do
-  let pointer = address(buffer)
+  const pointer = address(buffer)
 end
 ```
 

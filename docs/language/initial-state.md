@@ -7,15 +7,15 @@ initial defines the initial state of a struct or class. The special .new(...) me
 ```nb
 class Task
 
-  private let title: string
-  private let priority: integer = 0
+  prv const title: string
+  prv const priority: integer = 0
 
   def initial(@title, @priority) state
   end
 
 end
 
-let task = Task.new(title: "Write documentation")
+const task = Task.new(title: "Write documentation")
 ```
 
 Initial-state declarations use state ... end instead of do ... end. They are public by default; private or protected explicitly restricts access. initial has no ordinary return declaration. .new(...) produces the constructed value or object reference.
@@ -29,10 +29,10 @@ Bindings occur before the state body executes. An immutable property initialised
 Inputs without a direct property relationship use ordinary parameters.
 
 ```nb
-class Task
+entity Task
 
-  private let title: string
-  private let priority: integer
+  prv const title: string
+  prv const priority: integer
 
   def initial(@title, urgent: boolean = false) state
     self.priority =
@@ -51,10 +51,10 @@ end
 A bound parameter inherits its property's default unless it declares an explicit parameter default. The explicit default takes precedence for that initialiser.
 
 ```nb
-class Task
+entity Task
 
-  private let title: string
-  private let priority: integer = 0
+  prv const title: string
+  prv const priority: integer = 0
 
   def initial(@title, @priority = 2) state
   end
@@ -69,16 +69,16 @@ Omitting priority uses 2 here; without the parameter default, it uses the proper
 A struct without an explicit initial receives a public memberwise initialiser for its public stored properties. Property defaults supply omitted arguments.
 
 ```nb
-struct Point
+value Point
 
-  public let x: float = 0.0
-  public let y: float = 0.0
-  private let label: string = ""
+  pub const x: float = 0.0
+  pub const y: float = 0.0
+  prv const label: string = ""
 
 end
 
-let origin = Point.new()
-let offset = Point.new(x: 10.0)
+const origin = Point.new()
+const offset = Point.new(x: 10.0)
 ```
 
 Private and protected stored properties require defaults for this automatic form; otherwise an explicit initial is required. They do not become public construction parameters. Computed properties are not memberwise inputs. An explicit initial replaces the automatic form.

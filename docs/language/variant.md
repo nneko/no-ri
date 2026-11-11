@@ -5,13 +5,13 @@ Enums define a constrained set of cases, including cases carrying associated val
 ## Syntax and examples
 
 ```nb
-public enum Status
+pub variant Status
   case pending
   case active
   case completed
 end
 
-public enum Result<T, E>
+pub variant Result<T, E>
   case success(T)
   case failure(E)
 end

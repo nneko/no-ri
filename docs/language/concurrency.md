@@ -7,7 +7,7 @@ nb provides async functions, await, and structured concurrency. Typed channels, 
 ```nb
 async def fetch_data(url: string) -> string do
 
-  let response = await Http.get(url)
+  const response = await Http.get(url)
 
   response.body
 
@@ -17,15 +17,15 @@ end
 ```nb
 concurrent do
 
-  let first = spawn fetch_data(
+  const first = spawn fetch_data(
     "https://example.com/first"
   )
 
-  let second = spawn fetch_data(
+  const second = spawn fetch_data(
     "https://example.com/second"
   )
 
-  let results = [
+  const results = [
     await first,
     await second
   ]

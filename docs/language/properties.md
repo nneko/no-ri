@@ -9,11 +9,11 @@ computed full_name: string do
   "\(first_name) \(last_name)"
 end
 
-public computed balance: decimal do
+pub computed balance: decimal do
   get do
     balance_value
   end
-  protected set(value: decimal) do
+  res set(value: decimal) do
     balance_value = value
   end
 end

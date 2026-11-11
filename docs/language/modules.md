@@ -5,18 +5,18 @@ Every source file belongs to an implicit or explicit module. Imports and control
 ## Syntax and examples
 
 ```nb
-module Mathematics
-  private let precision = 0.0001
-  public def square(x: float) -> float do
+module Mathematics begin
+  prv const precision = 0.0001
+  pub def square(x: float) -> float do
     x * x
   end
 end
 
 import Mathematics from "./mathematics.nbs" as Math
-let result = Math.square(5.0)
+const result = Math.square(5.0)
 
-extend module Mathematics
-  public def cube(x: float) -> float do
+extend module Mathematics begin
+  pub def cube(x: float) -> float do
     x * x * x
   end
 end
@@ -24,13 +24,13 @@ end
 
 ## Semantics
 
-| Declaration | Default visibility |
-|---|---|
-| Module itself | public |
-| Module-level declarations | private |
-| Class/struct members other than initial | private |
-| Initial-state declarations | public |
-| Protocol requirements | public |
+| Declaration                             | Default visibility |
+| --------------------------------------- | ------------------ |
+| Module itself                           | public             |
+| Module-level declarations               | private            |
+| Class/struct members other than initial | private            |
+| Initial-state declarations              | public             |
+| Protocol requirements                   | public             |
 
 public makes declarations available through the public interface. protected permits authorized related declarations. private restricts access to the declaration's ownership boundary.
 

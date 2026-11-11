@@ -40,9 +40,9 @@ Binding follows parameter structure rather than guessing from argument types. Mu
 ## Named-argument shorthand
 
 ```nb
-let title = "Write documentation"
-let priority = 2
-let task = Task.new(title:, priority:)
+const title = "Write documentation"
+const priority = 2
+const task = Task.new(title:, priority:)
 ```
 
 name: means name: name. Lookup is limited to local and block scope. It does not implicitly resolve to properties, module members, or global declarations. Unknown or ambiguous shorthand names are errors.
@@ -74,7 +74,7 @@ def inspect(...) do
   end
 end
 
-let values: list = ["Ready", 3, true]
+const values: list = ["Ready", 3, true]
 inspect(values...)
 
 def forward(...) do
@@ -85,7 +85,7 @@ end
 Lists, sequences, and arrays supply their elements in iteration order. A collection supplies one (key, value) tuple per entry, in its iteration order.
 
 ```nb
-let details: collection = {
+const details: collection = {
   name: "Alice",
   age: 30
 }

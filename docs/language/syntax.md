@@ -1,19 +1,19 @@
 # Syntax
 
-nb source files use the .nbs extension. Declarations use readable keywords and explicit block delimiters. Every source file belongs to an implicit or explicit module.
+nb source files use the .nb or .nbs extension. Declarations use readable keywords and explicit block delimiters. Every source file belongs to an implicit or explicit module.
 
 ## Syntax and examples
 
 ```nb
 # A comment
-let name: string = "Alice"
+const name: string = "Alice"
 var count = 0
 
 def greet(name: string) -> string do
   "Hello, \(name)"
 end
 
-numbers.each do |number|
+numbers.each |number| do
   print(number)
 end
 numbers.map({ |number| number * 2 } -> integer)
@@ -23,6 +23,21 @@ names.map({ |name| name.upcase() } -> string)
 ## Semantics
 
 Type annotations follow a colon. Return annotations follow ->. Executable function bodies require do ... end; modules, classes, structs, enums, and control-flow forms use their shown declaration-specific block syntax. Blocks may use do ... end or the short brace form. Identifiers may carry a predicate ? suffix or consequential ! suffix.
+
+> An unparenthesized call may accept expressions as arguments, but any function call occurring within those expressions must use parenthesized call syntax.
+
+Examples
+
+| Expression             | Interpretation              | Valid |
+| ---------------------- | --------------------------- | ----- |
+| print "Hello"          | print("Hello")              | Yes   |
+| add 10, 20             | add(10, 20)                 | Yes   |
+| print add, 10, 20      | print(add, 10, 20)          | Yes   |
+| print add(10, 20)      | print(add(10, 20))          | Yes   |
+| print 10 + 20          | print(10 + 20)              | Yes   |
+| print add(10, 20) \* 2 | print(add(10, 20) \* 2)     | Yes   |
+| print add 10, 20       | Ambiguous nested call       | No    |
+| print(add 10, 20)      | Unparenthesized nested call | No    |
 
 ## Rules and constraints
 
