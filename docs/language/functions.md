@@ -4,7 +4,7 @@ Functions use def, parameters, and do ... end bodies. They can be called without
 
 ## Declarations
 
-```nb
+```no-ri
 def greet(name: string = "Guest") -> string do
   "Hello, \(name)"
 end
@@ -24,7 +24,7 @@ Parameterless declarations may omit parentheses. Predicates ending in ? return b
 
 -> Type explicitly declares a return value. The final expression supplies that value and is checked against the declared type. A return statement may supply a result earlier; a return statement in the body is not mandatory.
 
-```nb
+```no-ri
 def square(value: integer) -> integer do
   value * value
 end
@@ -32,7 +32,7 @@ end
 
 Without ->, a function returns no value: void, not nil. A value produced by its final expression is discarded. A void call cannot be used where a value is required.
 
-```nb
+```no-ri
 def calculate_and_discard(value: integer) do
   value * value
 end

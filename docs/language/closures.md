@@ -4,7 +4,7 @@ Closures enclose executable code and can receive parameters. Their explicit retu
 
 ## Returned values
 
-```nb
+```no-ri
 const double = { |value: integer| value * 2 } -> integer
 
 const doubled = numbers.map(
@@ -16,13 +16,13 @@ const doubled = numbers.map(
 
 Parentheses can group the complete closure expression.
 
-```nb
+```no-ri
 const square = ({ |value: integer| value * value } -> integer)
 ```
 
 ## Void closures
 
-```nb
+```no-ri
 numbers.each { |value| print(value) }
 
 numbers.each do |value|

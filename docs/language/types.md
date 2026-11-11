@@ -1,12 +1,12 @@
 # Types
 
-nb is statically typed. The compiler infers types when unambiguous and rejects incompatible assignments.
+no-ri is statically typed. The compiler infers types when unambiguous and rejects incompatible assignments.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 # ============================================================
-# FILE: geometry.nb
+# FILE: geometry.no-ri
 # ============================================================
 
 module Geometry begin
@@ -248,7 +248,7 @@ end
 
 
 # ============================================================
-# FILE: errors.nb
+# FILE: errors.no-ri
 # ============================================================
 
 import Error from "Foundation"
@@ -276,11 +276,11 @@ end
 
 
 # ============================================================
-# FILE: application.nb
+# FILE: application.no-ri
 # ============================================================
 
-import Geometry from "./geometry.nb" as Geo
-import ApplicationErrors from "./errors.nb" as Errors
+import Geometry from "./geometry.no-ri" as Geo
+import ApplicationErrors from "./errors.no-ri" as Errors
 
 import Memory from "Foundation"
 import Network from "Foundation"
@@ -1106,7 +1106,7 @@ end
 
 Asynchronous object initialization example:
 
-```nb
+```no-ri
 module Connections begin
 
     pub def entity Connection begin
@@ -1209,19 +1209,19 @@ Assignments must respect both type compatibility and binding mutability. An inva
 
 An incompatible assignment is invalid. An invalid unwrap is not silently accepted.
 
-```nb
+```no-ri
 var age: integer = 30
 age = "thirty"  # invalid: incompatible type
 ```
 
 ### Invalid syntax and semantic rule violation examples
 
-```nb
+```no-ri
 # ============================================================
 # DECLARATION ERRORS
 # ============================================================
 
-# INVALID: nb has no let keyword.
+# INVALID: no-ri has no let keyword.
 let value = 42
 
 # INVALID: async declaration order.
@@ -1426,7 +1426,7 @@ A compiler-generated `initial()` is available when all required properties can b
 
 Functions are first-class values. Anonymous closures use `do (parameters) -> Type ... end`; asynchronous closures use `async do (parameters) -> Type ... end`.
 
-Closures preserve nb's ownership and borrowing rules. Escaping closures cannot retain invalid borrows; ownership transfers use take, and mutable borrowing must remain exclusive.
+Closures preserve no-ri's ownership and borrowing rules. Escaping closures cannot retain invalid borrows; ownership transfers use take, and mutable borrowing must remain exclusive.
 
 ### Asynchronous execution
 

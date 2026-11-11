@@ -1,10 +1,10 @@
 # Syntax
 
-nb source files use the .nb or .nbs extension. Declarations use readable keywords and explicit block delimiters. Every source file belongs to an implicit or explicit module.
+no-ri source files use the .no-ri or .no-ri extension. Declarations use readable keywords and explicit block delimiters. Every source file belongs to an implicit or explicit module.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 # A comment
 const name: string = "Alice"
 var count = 0

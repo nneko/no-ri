@@ -4,7 +4,7 @@ Generic functions and types express reusable abstractions with compile-time type
 
 ## Syntax and examples
 
-```nb
+```no-ri
 def identity<T>(value: T) -> T do
   value
 end

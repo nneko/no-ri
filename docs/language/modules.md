@@ -4,7 +4,7 @@ Every source file belongs to an implicit or explicit module. Imports and control
 
 ## Syntax and examples
 
-```nb
+```no-ri
 module Mathematics begin
   prv const precision = 0.0001
   pub def square(x: float) -> float do
@@ -12,7 +12,7 @@ module Mathematics begin
   end
 end
 
-import Mathematics from "./mathematics.nbs" as Math
+import Mathematics from "./mathematics.no-ri" as Math
 const result = Math.square(5.0)
 
 extend module Mathematics begin
@@ -52,4 +52,4 @@ To be defined: Implicit module names, import search/resolution, initialization o
 
 ## Global functions
 
-nb has a global namespace for unqualified functions. Source files still belong to modules. See [global namespace](namespaces.md).
+no-ri has a global namespace for unqualified functions. Source files still belong to modules. See [global namespace](namespaces.md).

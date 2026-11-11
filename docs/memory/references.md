@@ -4,14 +4,14 @@ Explicit reference construction complements reference-oriented classes and borro
 
 ## Syntax and examples
 
-```nb
+```no-ri
 const reference = ref(buffer)
 const mutable_reference = ref(mut buffer)
 ```
 
 ## Semantics
 
-ref(buffer) constructs an explicit reference; ref(mut buffer) expresses a mutable reference. Safe references and raw pointers are distinct concerns. Class identity uses same as documented under classes.
+ref(buffer) constructs an explicit reference; ref(mut buffer) expresses a mutable reference. Safe references and raw pointers are distinct concerns. Entity identity uses same as documented under entity.
 
 ## Rules and constraints
 

@@ -1,25 +1,28 @@
+![](./assets/no-ri-rect-mark.svg)
+
 # Overview
 
-nb is a modern, statically typed, natively compiled programming language designed for expressive, safe, and high-performance software development.
+no-ri is a modern, statically typed, natively compiled programming language designed for expressive, safe, and high-performance software development.
 
-It aims to combine Ruby-like expressiveness and elegance, Swift's readability, safety, speed, and power, and the low-level depth of C. nb draws from selected aspects of Ruby and Swift syntax, removing unnecessary complexity while keeping the language cohesive and simple to read, write, and understand.
+It aims to combine Ruby-like expressiveness and elegance, Swift's readability, safety, speed, and power, and the low-level depth of C. no-ri draws from selected aspects of Ruby and Swift syntax, removing unnecessary complexity while keeping the language cohesive and simple to read, write, and understand.
 
-nb supports software ranging from small utilities and applications to services, native libraries, embedded software, and operating-system components. Common tasks require little ceremony; ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
+no-ri supports software ranging from small utilities and applications to services, native libraries, embedded software, and operating-system components. Common tasks require little ceremony; ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
 
 Its principle is: **Expressive by default. Explicit where it matters. Powerful without unnecessary complexity.**
 
 ## Language identity
 
-| Component | Name |
-|---|---|
-| Language | nb |
-| Public identity | nblang |
-| Toolchain | nbs |
-| Source extension | .nbs |
-| Manifest | nb.toml |
-| Debugger | nbdb |
-| Language server | nbls |
-| Operating-system ecosystem | n-os |
+| Component                  | Name       |
+| -------------------------- | ---------- |
+| Language                   | no-ri      |
+| Website                    | no-ri.dev  |
+| Public identity            | no-ri      |
+| Toolchain                  | no-ri      |
+| Source extension           | .no-ri     |
+| Manifest                   | no-ri.toml |
+| Debugger                   | no-ri-db   |
+| Language server            | no-ri-lsp  |
+| Operating-system ecosystem | n-os       |
 
 ## Programming model
 

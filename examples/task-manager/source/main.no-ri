@@ -1,5 +1,5 @@
-import Models from "./models.nbs"
-import Services from "./services.nbs"
+import Models from "./models.no-ri"
+import Services from "./services.no-ri"
 
 module Application begin
 
@@ -15,7 +15,7 @@ module Application begin
 
   pub async def main do
 
-    print("Welcome to nb!")
+    print("Welcome to no-ri!")
 
     const service = Services::TaskService.new()
 
@@ -23,7 +23,7 @@ module Application begin
 
       const first = service.add(
         id: "task-001",
-        title: "Design the nb language"
+        title: "Design the no-ri language"
       )
 
       const second = service.add(

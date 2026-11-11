@@ -1,10 +1,10 @@
 # Collections
 
-nb distinguishes indexed, keyed, fixed, dynamic, homogeneous, and heterogeneous structures explicitly.
+no-ri distinguishes indexed, keyed, fixed, dynamic, homogeneous, and heterogeneous structures explicitly.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 const coordinates: array<float, 3> = [1.0, 2.0, 3.0]
 const numbers = [1, 2, 3, 4, 5]
 const names: sequence<string> = ["Alice", "Bob", "Charlie"]

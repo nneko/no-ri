@@ -1,6 +1,6 @@
 # Native ABI
 
-Native nb binary execution contracts.
+Native no-ri binary execution contracts.
 
 ## Behaviour
 

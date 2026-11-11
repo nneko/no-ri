@@ -8,14 +8,14 @@ A task-management application demonstrating classes, structs, protocols, enums, 
 task-manager/
 ├── README.md
 ├── .gitignore
-├── nb.toml
+├── no-ri.toml
 ├── source/
-│   ├── main.nbs
-│   ├── models.nbs
-│   └── services.nbs
+│   ├── main.no-ri
+│   ├── models.no-ri
+│   └── services.no-ri
 └── tests/
     └── unit/
-        └── task-test.nbs
+        └── task-test.no-ri
 ```
 
 The repository follows the n-os source convention. Objects use CamelCase, methods use underscores, and compound filenames use dashes.
@@ -25,10 +25,10 @@ The repository follows the n-os source convention. Objects use CamelCase, method
 From the project root:
 
 ```sh
-nbs check
-nbs test
-nbs build
-nbs run source/main.nbs
+no-ri check
+no-ri test
+no-ri build
+no-ri run source/main.no-ri
 ```
 
 The manifest schema, test discovery, and assertion API are specifications in development.

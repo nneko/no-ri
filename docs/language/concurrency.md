@@ -1,10 +1,10 @@
 # Concurrency
 
-nb provides async functions, await, and structured concurrency. Typed channels, mutexes, and atomic values support communication and synchronisation.
+no-ri provides async functions, await, and structured concurrency. Typed channels, mutexes, and atomic values support communication and synchronisation.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 async def fetch_data(url: string) -> string do
 
   const response = await Http.get(url)
@@ -14,7 +14,7 @@ async def fetch_data(url: string) -> string do
 end
 ```
 
-```nb
+```no-ri
 concurrent do
 
   const first = spawn fetch_data(
@@ -35,7 +35,7 @@ concurrent do
 end
 ```
 
-```nb
+```no-ri
 channel<string>
 mutex<Counter>
 atomic<integer>

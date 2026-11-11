@@ -1,6 +1,6 @@
-# nb
+![](./docs/assets/no-ri-rect-mark.svg)
 
-nb is a statically typed, natively compiled programming language for expressive, safe, high-performance software.
+A statically typed, natively compiled programming language for expressive, safe, high-performance software.
 
 1. [Overview](docs/overview.md)
 2. [Design principles](docs/design.md)

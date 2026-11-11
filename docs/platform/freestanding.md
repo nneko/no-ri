@@ -4,7 +4,7 @@ Execute without a hosted operating-system runtime.
 
 ## Behaviour
 
-Freestanding nb must not require a mandatory garbage collector or general-purpose managed runtime. Deterministic resource management and explicit memory control are design goals.
+Freestanding no-ri must not require a mandatory garbage collector or general-purpose managed runtime. Deterministic resource management and explicit memory control are design goals.
 
 ## Specification in development
 

@@ -1,8 +1,8 @@
 # Global namespace
 
-nb has a global namespace. Standard functions can be called without a module or object qualifier; ordinary programming does not require object-oriented organisation.
+no-ri has a global namespace. Standard functions can be called without a module or object qualifier; ordinary programming does not require object-oriented organisation.
 
-```nb
+```no-ri
 print("Hello, world!")
 print_warn("Task not found")
 print_debug(task)

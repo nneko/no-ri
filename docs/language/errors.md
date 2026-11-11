@@ -4,7 +4,7 @@ Functions declare explicit error contracts. raise reports a failure; try, handle
 
 ## Syntax and examples
 
-```nb
+```no-ri
 def divide(
   a: float,
   b: float
@@ -19,7 +19,7 @@ def divide(
 end
 ```
 
-```nb
+```no-ri
 try
 
   const result = divide(10.0, 2.0)
@@ -37,7 +37,7 @@ ensure
 end
 ```
 
-```nb
+```no-ri
 const file = File.open("example.txt")
 
 defer do

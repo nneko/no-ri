@@ -4,7 +4,7 @@ Entity provide reference semantics, encapsulated state, and single concrete inhe
 
 ## Initial state
 
-```nb
+```no-ri
 pub class User
 
   prv const name_value: string

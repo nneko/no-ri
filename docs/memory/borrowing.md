@@ -4,7 +4,7 @@ Borrowing permits access to a value without expressing ownership transfer.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 def inspect(value: borrow Buffer) do
   print(value.length)
 end

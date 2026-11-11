@@ -4,7 +4,7 @@ Parameters declare callable inputs. Arguments provide their values. Functions, m
 
 ## Defaults
 
-```nb
+```no-ri
 def greet(name: string = "Guest") -> string do
   "Hello, \(name)"
 end
@@ -23,7 +23,7 @@ Expressions evaluate left to right. Parameters are processed in declaration orde
 
 Required parameters may follow defaulted parameters. Binding reserves arguments for required parameters, following Ruby-style positional rules.
 
-```nb
+```no-ri
 def example(first: integer = 10, second: integer) do
   print(first, second)
 end
@@ -39,7 +39,7 @@ Binding follows parameter structure rather than guessing from argument types. Mu
 
 ## Named-argument shorthand
 
-```nb
+```no-ri
 const title = "Write documentation"
 const priority = 2
 const task = Task.new(title:, priority:)
@@ -51,7 +51,7 @@ name: means name: name. Lookup is limited to local and block scope. It does not 
 
 A final ... parameter marker introduces the implicit local list vargs. It contains only additional positional arguments. Declared parameters are excluded whether supplied positionally, by name, or through defaults.
 
-```nb
+```no-ri
 def announce(prefix: string = "Update:", ...) do
   for value in vargs
     print(prefix, value)
@@ -67,7 +67,7 @@ Here vargs contains the three values "Ready", 3, and true. With no additional ar
 
 Postfix ... expands a list, sequence, array, or collection into positional arguments.
 
-```nb
+```no-ri
 def inspect(...) do
   for value in vargs
     print_debug(value)
@@ -84,7 +84,7 @@ end
 
 Lists, sequences, and arrays supply their elements in iteration order. A collection supplies one (key, value) tuple per entry, in its iteration order.
 
-```nb
+```no-ri
 const details: collection = {
   name: "Alice",
   age: 30

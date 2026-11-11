@@ -4,7 +4,7 @@ Conditionals, loops, and matching express decisions and repeated work. Condition
 
 ## Syntax and examples
 
-```nb
+```no-ri
 if age >= 18
   print("Adult")
 else
@@ -12,7 +12,7 @@ else
 end
 ```
 
-```nb
+```no-ri
 const category =
   if age >= 18
     "Adult"

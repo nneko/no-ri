@@ -1,4 +1,4 @@
-import Models from "./models.nbs"
+import Models from "./models.no-ri"
 
 module Services begin
 

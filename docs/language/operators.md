@@ -1,10 +1,10 @@
 # Operators
 
-nb provides arithmetic, comparison, boolean, assignment, optional-access, and range operators.
+no-ri provides arithmetic, comparison, boolean, assignment, optional-access, and range operators.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 counter += 1
 value * value
 x * x + y * y
@@ -23,7 +23,7 @@ values[1..3]
 
 The boolean operators and, or, not have equivalent symbolic forms &&, ||, !. Boolean operations require boolean-compatible operands; general truthiness is not assumed. Numeric overflow is checked by default. Integer division has integer semantics.
 
-Operators include +, *, /, %, ==, <, >=, =, +=, safe access ?., coalescing ??, and the range form .. . Identity uses same rather than being inferred from equality. Parentheses can express grouping explicitly.
+Operators include +, \*, /, %, ==, <, >=, =, +=, safe access ?., coalescing ??, and the range form .. . Identity uses same rather than being inferred from equality. Parentheses can express grouping explicitly.
 
 ## Rules and constraints
 

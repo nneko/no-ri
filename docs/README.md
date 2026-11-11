@@ -14,4 +14,4 @@ The language reference is the primary reference for developers. Independent tech
 10. [Platform](platform/README.md)
 11. [Examples](examples/README.md)
 
-[nb](../README.md)
+[no-ri](../README.md)

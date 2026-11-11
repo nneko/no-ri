@@ -4,7 +4,7 @@ Protocols define behavioral contracts. A type may conform to multiple protocols.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 pub protocol Identifiable begin
   def identifier -> string
 end

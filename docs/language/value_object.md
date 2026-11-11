@@ -2,7 +2,7 @@
 
 Value object provide value semantics, stored fields, and computed properties.
 
-```nb
+```no-ri
 pub value Point
 
   pub const x: float = 0.0

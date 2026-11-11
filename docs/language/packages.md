@@ -1,6 +1,6 @@
 # Packages
 
-A package organizes source modules and language dependencies. nb.toml is the project manifest, at the package root.
+A package organizes source modules and language dependencies. no-ri.toml is the project manifest, at the package root.
 
 ## Syntax and examples
 
@@ -8,15 +8,15 @@ A package organizes source modules and language dependencies. nb.toml is the pro
 [package]
 name = "task-manager"
 version = "0.1.0"
-description = "A sample task manager written in nb"
+description = "A sample task manager written in no-ri"
 
 [build]
-entry = "source/main.nbs"
+entry = "source/main.no-ri"
 ```
 
 ## Semantics
 
-Production source belongs in source/. Public interface artifacts belong in interfaces/ when needed. Package boundaries matter to module extension authorization. nbs manages language project operations and dependencies; operating-system package construction and distribution retain their own responsibilities.
+Production source belongs in source/. Public interface artifacts belong in interfaces/ when needed. Package boundaries matter to module extension authorization .no-ri manages language project operations and dependencies; operating-system package construction and distribution retain their own responsibilities.
 
 ## Rules and constraints
 

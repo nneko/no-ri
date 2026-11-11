@@ -1,6 +1,6 @@
 # Language reference
 
-Syntax, semantics, examples, and constraints for nb developers.
+Syntax, semantics, examples, and constraints for no-ri developers.
 
 1. [Syntax](syntax.md)
 2. [Types](types.md)

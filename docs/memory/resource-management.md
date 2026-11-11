@@ -4,7 +4,7 @@ Scope-exit cleanup releases resources deterministically.
 
 ## Syntax and examples
 
-```nb
+```no-ri
 const file = File.open("example.txt")
 
 defer do

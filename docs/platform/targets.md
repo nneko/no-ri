@@ -4,7 +4,7 @@ Supported target environments.
 
 ## Behaviour
 
-nb targets native executables, native libraries, and constrained freestanding environments. Applications can run within n-os or as standalone software on other supported platforms.
+no-ri targets native executables, native libraries, and constrained freestanding environments. Applications can run within n-os or as standalone software on other supported platforms.
 
 ## Specification in development
 

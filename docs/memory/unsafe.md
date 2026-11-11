@@ -4,7 +4,7 @@ Explicit unsafe scopes authorize low-level operations that require additional pr
 
 ## Syntax and examples
 
-```nb
+```no-ri
 unsafe do
   const pointer = address(buffer)
 end

@@ -4,7 +4,7 @@ Enums define a constrained set of cases, including cases carrying associated val
 
 ## Syntax and examples
 
-```nb
+```no-ri
 pub variant Status
   case pending
   case active

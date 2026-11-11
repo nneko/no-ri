@@ -4,7 +4,7 @@ initial defines the initial state of a struct or class. The special .new(...) me
 
 ## Declaration
 
-```nb
+```no-ri
 class Task
 
   prv const title: string
@@ -28,7 +28,7 @@ Bindings occur before the state body executes. An immutable property initialised
 
 Inputs without a direct property relationship use ordinary parameters.
 
-```nb
+```no-ri
 entity Task
 
   prv const title: string
@@ -50,7 +50,7 @@ end
 
 A bound parameter inherits its property's default unless it declares an explicit parameter default. The explicit default takes precedence for that initialiser.
 
-```nb
+```no-ri
 entity Task
 
   prv const title: string
@@ -68,7 +68,7 @@ Omitting priority uses 2 here; without the parameter default, it uses the proper
 
 A struct without an explicit initial receives a public memberwise initialiser for its public stored properties. Property defaults supply omitted arguments.
 
-```nb
+```no-ri
 value Point
 
   pub const x: float = 0.0

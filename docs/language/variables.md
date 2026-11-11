@@ -4,7 +4,7 @@ Bindings express whether a name can be reassigned. Type inference keeps declarat
 
 ## Syntax and examples
 
-```nb
+```no-ri
 const name = "Alice"
 var counter = 0
 counter += 1

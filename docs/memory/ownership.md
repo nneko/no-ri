@@ -4,7 +4,7 @@ The ownership model distinguishes owning values, borrowing values, mutable borro
 
 ## Syntax and examples
 
-```nb
+```no-ri
 def consume(value: take Buffer) do
   process(value)
 end

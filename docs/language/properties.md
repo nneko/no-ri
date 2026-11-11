@@ -4,7 +4,7 @@ Stored members hold state. Computed properties use computed and are read without
 
 ## Syntax and examples
 
-```nb
+```no-ri
 computed full_name: string do
   "\(first_name) \(last_name)"
 end
