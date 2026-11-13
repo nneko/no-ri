@@ -27,7 +27,7 @@ A simple computed body supplies the property value. Explicit get and set accesso
 
 ## Rules and constraints
 
-An accessor may narrow the property's visibility but cannot broaden it. A public property with a protected setter is shown. A private property with a public accessor would violate that visibility constraint. Members of classes and structs default to private.
+An accessor may narrow the property's visibility but cannot broaden it. A public property with a restricted setter is shown. A private property with a public accessor would violate that visibility constraint. Members of entities and value objects default to private.
 
 ## To be defined
 

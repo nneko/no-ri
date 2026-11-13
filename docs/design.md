@@ -23,7 +23,7 @@ Managed application programming and constrained freestanding programming share t
 
 Objects and named types use CamelCase, as in Task, TaskService, and DivisionError. Methods use lowercase words separated by underscores, as in print_tasks and fetch_data. Predicates may end in ?; consequential methods may end in !.
 
-Compound filenames use dashes, as in task-manager.md, control-flow.md, and task-test.nbs. no-ri source files use the .nbs extension.
+Compound filenames use dashes, as in task-manager.md, control-flow.md, and task-test.no-ri. no-ri source files use the .no-ri extension.
 
 Repositories follow the [n-os source convention](tooling/source-organization.md).
 

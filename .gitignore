@@ -192,3 +192,7 @@ build-test.sh
 
 # Document spikes
 spikes/
+
+# Auxillary documentation resources used in generation of documentation, but not part of the documentation itself
+docs/resources/
+resources/
