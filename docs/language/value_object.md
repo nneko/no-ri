@@ -1,37 +1,38 @@
 # Value Object
 
-Value object provide value semantics, stored fields, and computed properties.
+Value objects provide value semantics, stored properties, and computed properties. Declare them with `value object` or its shorthand `value`.
 
 ```no-ri
-pub value Point
+pub value Point begin
+  pub const x: float
+  pub const y: float
 
-  pub const x: float = 0.0
-  pub const y: float = 0.0
+  initial |@x = 0.0, @y = 0.0| state
+  end
 
   pub computed distance: float do
     (x * x + y * y).sqrt()
   end
-
 end
 
-const origin = Point.new()
-const offset = Point.new(x: 10.0)
+const origin = Point.initial()
+const offset = Point.initial(x: 10.0)
 ```
 
 ## Initial state
 
-Without an explicit initial, public stored properties form an automatic public memberwise initialiser. Property defaults supply omitted arguments. Private and protected stored properties require defaults for that form; otherwise an explicit initial is required. Computed properties are not memberwise inputs.
+Construct a value with `Type.initial(...)`. A synthesized initializer uses declared property defaults and creates no memberwise parameters. A required property without a default needs an explicit initialization path. An explicit initializer uses `state ... end` and can initialize stored properties through property-bound parameters or assignments in its body.
 
-Explicit initial declarations use state ... end, default to public, support property-bound parameters, and replace automatic initialisation. Every stored property must have an initial value before construction completes.
+A property-bound parameter takes its type from the property and binds its argument before the body. A mutable property-bound parameter can use the property default as its argument default. An explicit parameter default takes precedence. A declaration-time default consumes a `const` property's single initialization. Reads require definite initialization, and every successful construction path must initialize required state.
+
+Ordinary members default to private, and initializers default to public. Public APIs must expose accessible types.
 
 ## Value semantics
 
-Value semantics do not prescribe stack allocation or bitwise copying. Borrowing a derived value object through a base type preserves the complete value. Explicit conversion may produce a sliced base value. Single concrete inheritance is a specification in development.
-
-Members default to private except initial declarations. Public APIs cannot expose inaccessible types.
+Value semantics do not prescribe stack allocation or bitwise copying. Mutating a value member requires a writable path to the enclosing value. Value objects can conform to protocols. Static derivation with `<` is available for entity declarations and the standalone `object` form.
 
 ## Specification in development
 
-Value object explicit sliced conversions, layout, dispatch, copying owned fields, and complete definite-initialisation analysis.
+Layout, copying owned fields, and complete definite-initialization analysis remain in development.
 
-[Initial state](initial-state.md) · [Properties](properties.md) · [Borrowing](../memory/borrowing.md) · [Language reference](README.md)
+[Syntax](syntax.md) · [Initial state](initial-state.md) · [Properties](properties.md) · [Borrowing](../memory/borrowing.md) · [Language reference](README.md)

@@ -81,16 +81,16 @@ Reserved words are recognized as complete, case-sensitive spellings. For example
 | Collection types | `array`, `collection`, `list`, `map`, `sequence`, `set`, `slice`, `tuple` |
 | Symbol and no-result types | `symbol`, `void` |
 
-| Context                        | Contextual words                  |
-| ------------------------------ | --------------------------------- |
-| Imports                        | `from`, `as`                      |
-| Package inclusion              | `includes`                        |
-| Protocol conformance           | `conforms`, `to`                  |
-| Explicit getter headers        | `get`                             |
-| Instance and parent references | `self`, `parent`                  |
-| Ownership and reference forms  | `borrow`, `mut`, `take`, `unsafe` |
+| Context                           | Contextual words                  |
+| --------------------------------- | --------------------------------- |
+| Imports                           | `from`, `as`                      |
+| Package inclusion                 | `includes`                        |
+| Protocol conformance              | `conforms`, `to`                  |
+| Explicit getter headers           | `get`                             |
+| Instance and prototype references | `self`, `parent`                  |
+| Ownership and reference forms     | `borrow`, `mut`, `take`, `unsafe` |
 
-`initial` is also a member selector in construction and parent initialization. `set` introduces an explicit setter or the collection constructor `set(...)`. `get` is an ordinary identifier outside getter headers. Built-in names such as `integer`, `boolean`, `string`, and `ref` resolve through the applicable namespace. `vargs` is an implicit local in variadic callables and an ordinary identifier elsewhere.
+`initial` is also a member selector in construction and prototype initialization. `set` introduces an explicit setter or the collection constructor `set(...)`. `get` is an ordinary identifier outside getter headers. Built-in names such as `integer`, `boolean`, `string`, and `ref` resolve through the applicable namespace. `vargs` is an implicit local in variadic callables and an ordinary identifier elsewhere.
 
 ### Punctuation and token selection
 
@@ -610,7 +610,7 @@ variant-case =
 conformance = "conforms", "to", type, { ",", type } ;
 ```
 
-`< Base` names a single concrete parent where inheritance applies. `conforms to ProtocolA, ProtocolB` lists protocol conformances. Parenthesized types on a variant case declare its associated-value payload. A variant member list admits cases and declarations allowed by the variant object model.
+`< Base` names a single concrete entity prototype for static object derivation. The compiler incorporates the state and behavior supplied by derivation into a distinct, concrete, final entity type. Finality applies to the resulting type identity. A derived entity can itself serve as a prototype for further static derivation. All prototype members and protocol conformances carry over. The compiler rejects conflicts at compile time and the programmer must resolve them. The derivation clause establishes no subtype relationship or implicit conversion to the prototype type. Protocol conformance is the only form of object polymorphism. `conforms to ProtocolA, ProtocolB` lists protocol conformances. Parenthesized types on a variant case declare its associated-value payload. A variant member list admits cases and declarations allowed by the variant object model.
 
 ```no-ri
 value object Point begin
@@ -762,11 +762,13 @@ A declaration-time default consumes a `const` property’s single initialization
 
 ### Parent initialization
 
-If a child declares no initializer, construction calls `parent.initial()` with no explicit arguments. The call can use parent defaults and must resolve to one applicable initializer.
+The prototype is the concrete entity named by the derivation clause. In a derived entity’s initializer, `parent.initial(...)` applies a prototype initializer to the prototype-derived state of the instance under construction. The constructed instance has the derived entity’s type.
 
-When construction uses a declared child initializer, an automatic parent call forwards matching child parameters by name. Omitted parent parameters can use defaults. A missing or ambiguous applicable initializer is a compile-time error.
+If the derived entity declares no initializer, construction calls `parent.initial()` with no explicit arguments. The call can use prototype defaults and must resolve to one applicable initializer.
 
-A child initializer with an identical signature overrides the parent initializer and suppresses the automatic call. The override must call `parent.initial(...)` explicitly. Every successful construction path must establish parent initialization.
+An automatic prototype initialization call runs after declaration-time defaults and any property-bound parameter bindings for the derived entity. With a declared initializer, the automatic call forwards matching parameters by name. Omitted prototype parameters can use defaults. A missing or ambiguous applicable initializer is a compile-time error. An explicit `parent.initial(...)` call in the initializer suppresses automatic forwarding for that initializer.
+
+A declared initializer whose signature matches a prototype initializer’s signature exactly suppresses the automatic call and must call `parent.initial(...)` explicitly. Every successful construction path must establish initialization of the prototype-derived state.
 
 ```no-ri
 entity Shape begin

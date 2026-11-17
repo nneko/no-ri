@@ -196,3 +196,7 @@ spikes/
 # Auxillary documentation resources used in generation of documentation, but not part of the documentation itself
 docs/resources/
 resources/
+
+# Source builds
+source/build/
+source/.build/

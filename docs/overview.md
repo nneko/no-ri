@@ -2,56 +2,55 @@
 
 # Overview
 
-no-ri is a modern, statically typed, natively compiled programming language designed for expressive, safe, and high-performance software development.
+no-ri is a modern, statically typed, natively compiled programming language designed for expressive, safe, and high-performance development of utilities, applications, services, native software libraries, and lower-level work, including embedded software and operating-system components.
 
-It aims to combine Ruby-like expressiveness and elegance, Swift's readability, safety, speed, and power, and the low-level depth of C. no-ri draws from selected aspects of Ruby and Swift syntax, removing unnecessary complexity while keeping the language cohesive and simple to read, write, and understand.
+A core aim is to combine expressive and elegant syntax with concise everyday code. The design focuses on keeping the language cohesive, simple to read, write, and understand. In no-ri Common tasks require little ceremony but more complex operations such as data ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
 
-no-ri supports software ranging from small utilities and applications to services, native libraries, embedded software, and operating-system components. Common tasks require little ceremony; ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
-
-Its principle is: **Expressive by default. Explicit where it matters. Powerful without unnecessary complexity.**
+The language's guiding principles can be summarized as: **Expressive by default. Explicit where it matters. Powerful without unnecessary complexity.**
 
 ## Language identity
 
-| Component                  | Name       |
-| -------------------------- | ---------- |
-| Language                   | no-ri      |
-| Website                    | no-ri.dev  |
-| Public identity            | no-ri      |
-| Toolchain                  | no-ri      |
-| Source extension           | .no-ri     |
-| Manifest                   | no-ri.toml |
-| Debugger                   | no-ri-db   |
-| Language server            | no-ri-lsp  |
-| Operating-system ecosystem | n-os       |
+| Component        | Name       |
+| ---------------- | ---------- |
+| Language         | no-ri      |
+| Website          | no-ri.dev  |
+| Public identity  | no-ri      |
+| Toolchain        | no-ri      |
+| Source extension | .no-ri     |
+| Manifest         | no-ri.toml |
+| Debugger         | no-ri-db   |
+| Language server  | no-ri-lsp  |
 
 ## Programming model
 
-Compile-time type checking and inference work with value-oriented structs, reference-oriented classes, behavioral protocols, generic types and functions, enums, closures, and computed properties. Modules and visibility define API boundaries. Optional values make absence explicit. Error contracts describe recoverable failures.
+Value objects provide value semantics, entity objects provide reference semantics and identity, and variant objects represent a fixed set of cases with optional associated values. Protocols describe shared behaviour. An entity can derive statically from a concrete prototype to produce an independent, concrete, final type. Derivation creates no subtype relationship. Protocol conformance is the only form of object polymorphism.
 
-Ownership-aware memory safety, borrowing, structured concurrency, and explicit unsafe scopes support progressively lower-level programming. Detailed lifetime, aliasing, and concurrency rules are specifications in development.
+Type checking and inference work with generics, closures, and computed properties. Modules organise declarations and control visibility, and packages bound module extension. Optional values make absence explicit. Error contracts describe recoverable failures.
 
-nb compiles to native executables and libraries. Output formats include shared libraries, static libraries, and executables for constrained freestanding targets. The backend and intermediate representation remain implementation decisions.
+Native applications use automatic reference counting (ARC) to manage reference lifetimes. Borrowing, explicit memory management, and unsafe scopes support progressively lower-level programming. Detailed lifetime, aliasing, and concurrency rules are specifications in development. Native compilation and efficient representations aim to keep performance predictable, with costs depending on allocation, ownership, and representation.
+
+The no-ri toolchain targets native executables, shared libraries, static libraries, and executables for constrained freestanding targets. The backend and intermediate representation remain implementation decisions.
 
 ## Small example
 
-```nb
-def greet(name: string) -> string do
+```no-ri
+def greet |name: string| -> string do
   "Hello, \(name)"
 end
 
 print(greet("Alice"))
 ```
 
-Functions use def and executable bodies use do ... end. An explicit -> declaration permits a return value, supplied by the final expression or a return statement. Without ->, the function returns no value. The complete standard-library API is a specification in development.
+Functions use `def`, parameters appear between bars, and executable bodies use `do ... end`. With an explicit `->` result declaration, the final expression or a `return` statement supplies the result. A function without a result declaration returns no value.
 
 ## Independence and interoperability
 
-nb has its own language semantics, standard library, compiler, and execution model. Ruby compatibility is an optional interoperability capability. Native programs that do not use Ruby interoperability do not require CRuby. C ABI compatibility is the primary foreign-function boundary.
+no-ri has its own language semantics, standard library, compiler, and execution model. The C ABI is the primary foreign-function boundary. Ruby and Swift interoperability is optional, and native programs that omit them can run independently of CRuby or the Swift runtime.
 
-nb is developed alongside n-os and can also build standalone software. Its semantics do not depend on a particular operating-system filesystem hierarchy or package manager.
-
-Continue with the [design principles](design.md) and [language reference](language/README.md).
+no-ri is developed alongside n-os (a specialized unix inspired operating system) and can also build standalone software. Its semantics are independent of any particular operating-system filesystem hierarchy or package manager.
 
 ## Everyday programming
 
-Global print, print_warn, and print_debug provide configurable output. Console is a separate advanced terminal module. Structs and classes use .new(...); initial declarations define state through concise property-bound parameters.
+Global `print`, `print_warn`, and `print_debug` provide configurable output. `Console` is a separate advanced terminal module. Construct value and entity instances with `Type.initial(...)`. Initializers define state and can use property-bound parameters. The complete standard-library API is a specification in development.
+
+Continue with the [design principles](design.md) and [language reference](language/README.md).
