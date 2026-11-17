@@ -13,7 +13,7 @@ public enum TokenType: String, Hashable, Sendable, CustomStringConvertible {
 
     case EOF
     case INVALID
-    //case LF
+    case LF = "newline"
     //case CR
 
     // MARK: - Identifiers
@@ -41,6 +41,8 @@ public enum TokenType: String, Hashable, Sendable, CustomStringConvertible {
     case Value = "value"
     case Variable = "var"
     case Variant = "variant"
+    case Symbol = "symbol"
+    case Void = "void"
 
     // MARK: - Control Flow keywords
     case Begin = "begin"
@@ -99,17 +101,25 @@ public enum TokenType: String, Hashable, Sendable, CustomStringConvertible {
     case Continuation = "\\\n"
     */
     case Backslash = "\\"
-    case RegexOpener = "%r{"
 
     // MARK: - Literals
     case Nil = "nil"
-    case Void = "void"
-    case Symbol = "symbol"
+    case AtomIdentifier = "atomic-identifier"
 
     // MARK: - Numeric Literals
-    case Numeral = "numeral"
+    case IntegralNumeral = "integral"
+    case DecimalNumeral = "decimal"
 
     // MARK: - String Literals
+    case Text = "text"
+    case TextStart = "text-start"
+    case TextSegment = "text-segment"
+    case TextEnd = "text-end"
+    case InterpolationStart = "interpolation-start"
+    case InterpolationEnd = "interpolation-end"
+
+    // MARK: = Regular Expression Literals
+    case Regex = "regex"
 
     // MARK: - Boolean Literals
     case True = "true"
@@ -217,4 +227,45 @@ public enum TokenType: String, Hashable, Sendable, CustomStringConvertible {
     public var description: String {
         rawValue
     }
+}
+
+public enum TriviaType: String, Hashable, Sendable, CustomStringConvertible {
+    case Spaces = "spaces"
+    case Tabs = "tabs"
+    case CarriageReturn = "carriage-return"
+    case LineComment = "line-comment"
+    case BlockComment = "block-comment"
+    case LineContinuation = "line-continuation"
+
+    public var description: String {
+        rawValue
+    }
+}
+
+/// Represents trivia in no-ri source code, such as whitespace,
+/// comments, and line continuations.
+///
+/// `segment` identifies the original bytes in the source.
+/// `line` is the 1-based starting line number.
+/// `column` is the 1-based starting UTF-8 byte column.
+public struct Trivia: Hashable, Sendable {
+    public let type: TriviaType
+    public let segment: SourceSegment
+    public let line: Int
+    public let column: Int
+}
+
+/// Represents a lexical token in no-ri source code.
+///
+/// `segment` identifies the original bytes in the source.
+/// `line` is the 1-based starting line number.
+/// `column` is the 1-based starting UTF-8 byte column.
+public struct Token: Hashable, Sendable {
+    public let type: TokenType
+    public let segment: SourceSegment
+    public let line: Int
+    public let column: Int
+
+    public let leadingTrivia: [Trivia]
+    public let trailingTrivia: [Trivia]?
 }

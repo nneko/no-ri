@@ -4,22 +4,39 @@
 
 no-ri is a modern, statically typed, natively compiled programming language designed for expressive, safe, and high-performance development of utilities, applications, services, native software libraries, and lower-level work, including embedded software and operating-system components.
 
-A core aim is to combine expressive and elegant syntax with concise everyday code. The design focuses on keeping the language cohesive, simple to read, write, and understand. In no-ri Common tasks require little ceremony but more complex operations such as data ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
+A core aim is to combine expressive and elegant syntax with concise everyday code. The design focuses on keeping the language cohesive, simple to read, write, and understand. In no-ri, common tasks require little ceremony, while more complex operations such as data ownership, concurrency, interoperability, and direct system operations remain accessible through explicit mechanisms.
 
-The language's guiding principles can be summarized as: **Expressive by default. Explicit where it matters. Powerful without unnecessary complexity.**
+**Expressive by default. Explicit where it matters. Powerful without unnecessary complexity.**
 
-## Language identity
+The name **no-ri** begins with **No Ritual**, a call to avoid unnecessary ceremony, boilerplate, and complexity. Its full statement, **No Rituals to Retain Intent**, explains the purpose of removing that ceremony. The dash reads as “to,” linking the removal of what obscures intent to the preservation of meaningful semantics.
 
-| Component        | Name       |
-| ---------------- | ---------- |
-| Language         | no-ri      |
-| Website          | no-ri.dev  |
-| Public identity  | no-ri      |
-| Toolchain        | no-ri      |
-| Source extension | .no-ri     |
-| Manifest         | no-ri.toml |
-| Debugger         | no-ri-db   |
-| Language server  | no-ri-lsp  |
+In practice, **No Required Idiom** means choosing the paradigm and abstractions that fit the problem. Procedural, object-oriented, functional, and systems-oriented techniques are available as the context calls for them.
+
+At the technical level, **Natural Operations minus Ritualistic Impositions, balanced with Rigorous Intent** gives the dash two further readings. As “minus,” it calls for removing redundant syntax, arbitrary restrictions, and language-imposed ceremony. As “balanced with,” it pairs readable, intuitive expression with static rigor, safety, predictable performance, and explicit control. The language infers what it can safely, omits what it can without ambiguity, and requires explicitness where correctness, ownership, mutation, error handling, concurrency, interoperability, or performance depend on it.
+
+```mermaid
+flowchart TD
+    Name["no-ri"]
+    Name --> L1["1. Name<br/>No Ritual"]
+    Name --> L2["2. Full statement<br/>No Rituals to Retain Intent"]
+    Name --> L3["3. Practical<br/>No Required Idiom"]
+    Name --> L4["4. Technical"]
+    L4 --> NO["NO · Natural Operations<br/>Expressive, readable, intuitive"]
+    NO -->|subtract| RI1["RI · Ritualistic Impositions"]
+    NO -->|balance with| RI2["RI · Rigorous Intent"]
+```
+
+## Tools and file formats
+
+| Component                    | Name       |
+| ---------------------------- | ---------- |
+| Language                     | no-ri      |
+| Website                      | no-ri.dev  |
+| Interpreter and compiler CLI | no-ri      |
+| Source extension             | .no-ri     |
+| Manifest                     | no-ri.toml |
+| Debugger                     | no-ri-db   |
+| Language server              | no-ri-lsp  |
 
 ## Programming model
 
@@ -34,14 +51,14 @@ The no-ri toolchain targets native executables, shared libraries, static librari
 ## Small example
 
 ```no-ri
-def greet |name: string| -> string do
+greet |name: string| -> string do
   "Hello, \(name)"
 end
 
 print(greet("Alice"))
 ```
 
-Functions use `def`, parameters appear between bars, and executable bodies use `do ... end`. With an explicit `->` result declaration, the final expression or a `return` statement supplies the result. A function without a result declaration returns no value.
+A function declaration can start directly with its name. Parameters appear between bars, and executable bodies use `do ... end`. With an explicit `->` result declaration, the final expression or a `return` statement supplies the result. A function without a result declaration returns no value.
 
 ## Independence and interoperability
 
