@@ -4,7 +4,7 @@ A function can write a greeting to the console:
 
 ```nb
 def greet do
-  print("Hello")
+  echo("Hello")
 end
 ```
 

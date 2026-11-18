@@ -10,7 +10,7 @@ pub protocol Identifiable begin
 end
 
 pub protocol Printable begin
-  def print
+  def echo
 end
 
 # Protocol conformance

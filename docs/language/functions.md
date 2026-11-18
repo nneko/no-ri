@@ -10,7 +10,7 @@ def greet(name: string = "Guest") -> string do
 end
 
 def show_message(message: string) do
-  print(message)
+  echo(message)
 end
 
 def even?(value: integer) -> boolean do

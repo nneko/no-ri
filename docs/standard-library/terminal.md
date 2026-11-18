@@ -1,6 +1,6 @@
 # Console
 
-Console is a standard-library module for advanced terminal interaction. Ordinary output uses the global print, print_warn, and print_debug functions.
+Console is a standard-library module for advanced terminal interaction. Ordinary output uses the global echo, warn, and debug functions.
 
 ## Capabilities
 

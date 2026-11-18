@@ -9,7 +9,7 @@ Descriptors include parameter name, external label, declared type, whether a def
 ```no-ri
 def announce(prefix: string = "Update:", ...) do
   for value in vargs
-    print(prefix, value)
+    echo(prefix, value)
   end
 end
 ```

@@ -212,7 +212,7 @@ end
 
 ## Entry point
 
-The application uses global print, handles errors, and reports completion through ensure. Its async entry point requires no concurrent work.
+The application uses global echo, handles errors, and reports completion through ensure. Its async entry point requires no concurrent work.
 
 ```nb
 import Models from "./models.nbs"
@@ -225,14 +225,14 @@ module Application
   ) do
 
     for task in tasks
-      print(task.describe())
+      echo(task.describe())
     end
 
   end
 
   public async def main do
 
-    print("Welcome to nb!")
+    echo("Welcome to nb!")
 
     let service = Services::TaskService.new()
 
@@ -250,7 +250,7 @@ module Application
 
       service.complete!(first.identifier)
 
-      print(
+      echo(
         "Total tasks: \(service.count)"
       )
 
@@ -258,13 +258,13 @@ module Application
 
     handle error: Services::TaskError
 
-      print(
+      echo(
         "Task operation failed: \(error)"
       )
 
     ensure
 
-      print("Application finished.")
+      echo("Application finished.")
 
     end
 

@@ -1,14 +1,14 @@
 # Printing
 
-print, print_warn, and print_debug are standard functions available without a module or object qualifier.
+echo, warn, and debug are standard functions available without a module or object qualifier.
 
-| Function    | Destination     | Default representation   |
-| ----------- | --------------- | ------------------------ |
-| print       | Standard output | Ordinary text            |
-| print_warn  | Standard error  | Ordinary text            |
-| print_debug | Standard error  | Debugging representation |
+| Function | Destination     | Default representation   |
+| -------- | --------------- | ------------------------ |
+| echo     | Standard output | Ordinary text            |
+| warn     | Standard error  | Ordinary text            |
+| debug    | Standard error  | Debugging representation |
 
-print_warn adds no automatic warning prefix. print_debug remains active in release builds unless build configuration explicitly controls it.
+warn adds no automatic warning prefix. debug remains active in release builds unless build configuration explicitly controls it.
 
 ## Options
 
@@ -21,12 +21,12 @@ All three functions share labelled output options.
 | format     | Omitted | Ruby-compatible printf format string |
 
 ```no-ri
-print("Hello, world!")
-print("Alice", 30)
-print("Alice", 30, separator: ": ")
-print("Loading...", terminator: "")
-print_warn("Task not found")
-print_debug(task)
+echo("Hello, world!")
+echo("Alice", 30)
+echo("Alice", 30, separator: ": ")
+echo("Loading...", terminator: "")
+warn("Task not found")
+debug(task)
 ```
 
 Without format, values use ordinary or debugging text representations and are joined using separator. terminator is then appended, adding a newline by default.
@@ -36,10 +36,10 @@ Without format, values use ordinary or debugging text representations and are jo
 format is the format string itself, not a boolean mode selector. Formatting follows Ruby printf conventions.
 
 ```no-ri
-print("Alice", 3, format: "%s has %d tasks")
-print(19.95, format: "Price: %.2f")
-print(7, format: "Item %03d")
-print(50, format: "%d%% complete")
+echo("Alice", 3, format: "%s has %d tasks")
+echo(19.95, format: "Price: %.2f")
+echo(7, format: "Item %03d")
+echo(50, format: "%d%% complete")
 ```
 
 The format controls conversion, flags, width, precision, and value combination. separator has no effect when format is supplied. terminator still applies; a newline within format does not suppress it.
@@ -48,7 +48,7 @@ Invalid formats and incompatible arguments report an error rather than silently 
 
 ## Streams and terminals
 
-Printing writes to standard streams and supports redirected output. Advanced colours, cursor operations, keyboard modes, and screen interfaces belong to the Console module.
+echoing writes to standard streams and supports redirected output. Advanced colours, cursor operations, keyboard modes, and screen interfaces belong to the Console module.
 
 ## Specification in development
 

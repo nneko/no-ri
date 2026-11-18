@@ -457,7 +457,7 @@ The empty parameter declaration uses `||`:
 
 ```no-ri
 greet || do
-  print("Hello")
+  echo("Hello")
 end
 ```
 
@@ -467,7 +467,7 @@ An explicit `def` remains optional for all declarations. The following is equiva
 
 ```no-ri
 def greet do
-  print("Hello")
+  echo("Hello")
 end
 ```
 
@@ -477,7 +477,7 @@ Trailing closures use `do` before their parameter delimiters:
 
 ```no-ri
 numbers.each do |number|
-  print(number)
+  echo(number)
 end
 ```
 

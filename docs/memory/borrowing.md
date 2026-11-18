@@ -6,7 +6,7 @@ Borrowing permits access to a value without expressing ownership transfer.
 
 ```no-ri
 def inspect(value: borrow Buffer) do
-  print(value.length)
+  echo(value.length)
 end
 
 def modify(value: borrow mut Buffer) do

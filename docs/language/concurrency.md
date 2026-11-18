@@ -30,7 +30,7 @@ concurrent do
     await second
   ]
 
-  print(results)
+  echo(results)
 
 end
 ```

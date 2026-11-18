@@ -4,7 +4,7 @@ Borrowing, ownership transfer, references, and unsafe scopes provide explicit co
 
 ```nb
 def inspect(value: borrow Buffer) do
-  print(value.length)
+  echo(value.length)
 end
 
 def modify(value: borrow mut Buffer) do

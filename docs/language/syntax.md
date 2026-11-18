@@ -79,7 +79,7 @@ Reserved words are recognized as complete, case-sensitive spellings. For example
 | Errors and concurrency | `await`, `concurrent`, `defer`, `enforce`, `handle`, `raise`, `raises`, `spawn`, `try` |
 | Literals and word operators | `and`, `between`, `false`, `nil`, `not`, `or`, `same`, `true` |
 | Collection types | `array`, `collection`, `list`, `map`, `sequence`, `set`, `slice`, `tuple` |
-| Symbol and no-result types | `symbol`, `void` |
+| Symbol and no-result types | `symbol`, `nothing` |
 
 | Context                           | Contextual words                  |
 | --------------------------------- | --------------------------------- |
@@ -246,7 +246,7 @@ report || do
   ###
   Fences can be indented.
   ###
-  print(count)
+  echo(count)
 end
 
 ### This line is a line comment.
@@ -406,7 +406,7 @@ At the outer level of a pipe-delimited parameter list, an expression-level `|` c
 
 ```no-ri
 inspect |flags: u8 = (read_mask | write_mask), ...| do
-  print(flags, vargs)
+  echo(flags, vargs)
 end
 ```
 
@@ -416,19 +416,19 @@ A command-style call has a callee followed by whitespace and at least one argume
 
 | Form | Interpretation |
 | --- | --- |
-| `print "Hello"` | `print("Hello")` |
+| `echo "Hello"` | `echo("Hello")` |
 | `add 10, 20` | `add(10, 20)` |
-| `print add, 10, 20` | Three arguments, beginning with the value named `add`. |
-| `print 10 + 20` | One argument containing an addition. |
-| `print add(10, 20) * 2` | One argument containing a nested call and multiplication. |
-| `print add 10, 20` | Invalid nested command-style call. |
-| `print(add 10, 20)` | Invalid nested command-style call. |
+| `echo add, 10, 20` | Three arguments, beginning with the value named `add`. |
+| `echo 10 + 20` | One argument containing an addition. |
+| `echo add(10, 20) * 2` | One argument containing a nested call and multiplication. |
+| `echo add 10, 20` | Invalid nested command-style call. |
+| `echo(add 10, 20)` | Invalid nested command-style call. |
 | `reset()` | Call with zero arguments. |
 | `reset do ... end` | Call with a trailing closure. |
 
 ### Return annotations
 
-A callable with a value result must supply a compatible value on each normally completing path. Its final expression can supply that value. An explicit `return expression` can supply it earlier. A bare `return` exits a no-result callable. A callable without a return annotation, or with `-> void`, discards its final expression value.
+A callable with a value result must supply a compatible value on each normally completing path. Its final expression can supply that value. An explicit `return expression` can supply it earlier. A bare `return` exits a no-result callable. A callable without a return annotation, or with `-> nothing`, discards its final expression value.
 
 ## Closures
 
@@ -463,7 +463,7 @@ const fetch = async do |url: string| -> string
 end
 
 numbers.each do |item|
-  print(item)
+  echo(item)
 end
 
 const doubled = numbers.map do |item| -> integer
@@ -494,7 +494,7 @@ generic-argument = type | integer-literal ;
 ### Callable types
 
 ```ebnf
-result-type = grouped-or-named-type | "void" ;
+result-type = grouped-or-named-type | "nothing" ;
 
 callable-type =
     [ "async" ], callable-inputs, "->", result-type, [ error-contract ] ;
@@ -504,20 +504,20 @@ callable-inputs =
   | "|", grouped-or-named-type, { ",", grouped-or-named-type }, "|" ;
 ```
 
-Callable types use pipes around input types. `async` precedes the input list. `raises` follows the result. `void` is the special no-result type in a result position.
+Callable types use pipes around input types. `async` precedes the input list. `raises` follows the result. `nothing` is the special no-result type in a result position.
 
 A callable signature used directly as another callable’s input or result type must be parenthesized. The parentheses enclose the entire nested signature, including any `async` modifier or `raises` clause. A clause inside those parentheses applies to the nested signature. A clause after the grouped result applies to the enclosing declaration or signature. Parentheses are also valid around a standalone callable type. To make the callable itself optional, put `?` after the closing parenthesis.
 
 ```no-ri
 var filter: |string, integer| -> boolean
-var shutdown: || -> void
+var shutdown: || -> nothing
 var fetch: async |string| -> Response raises RequestError
-var callback: (|integer| -> void)?
+var callback: (|integer| -> nothing)?
 
 var apply: |(|integer| -> boolean), integer| -> boolean
 var make_predicate: || -> (|integer| -> boolean)
-var schedule: |(|| -> void)| -> void
-var schedule_load: |(async |string| -> Response raises RequestError)| -> void
+var schedule: |(|| -> nothing)| -> nothing
+var schedule_load: |(async |string| -> Response raises RequestError)| -> nothing
 ```
 
 ### Collection literals
@@ -873,19 +873,19 @@ condition = expression | "const", identifier, "=", expression ;
 
 ```no-ri
 if score >= 90 do
-  print("Excellent")
+  echo("Excellent")
 elif score >= 75 do
-  print("Good")
+  echo("Good")
 else
-  print("Keep going")
+  echo("Keep going")
 end
 
 if const name = preferred_name do
-  print(name)
+  echo(name)
 elif const name = fallback_name do
-  print(name)
+  echo(name)
 else
-  print("Guest")
+  echo("Guest")
 end
 ```
 
@@ -910,19 +910,19 @@ while-form = "while", expression, executable-body ;
 
 ```no-ri
 for name in names do
-  print(name)
+  echo(name)
 end
 
 for key, item in entries do
-  print(key, item)
+  echo(key, item)
 end
 
 for (key, item_value) in tuples do
-  print(key, item_value)
+  echo(key, item_value)
 end
 
 for key, (item_key, item_value) in entries do
-  print(key, item_key, item_value)
+  echo(key, item_key, item_value)
 end
 
 while remaining > 0 do
@@ -934,10 +934,10 @@ end
 
 ```no-ri
 names.each do |name|
-  print(name)
+  echo(name)
 end
 
-names.each { |name| print(name) }
+names.each { |name| echo(name) }
 ```
 
 ### Ranges and spread
@@ -962,11 +962,11 @@ const interior = 1 between 4
 const empty = 1 between 2
 
 for index in 1..3 do
-  print(index)  # 1, 2, 3
+  echo(index)  # 1, 2, 3
 end
 
 for index in 1 between 4 do
-  print(index)  # 2, 3
+  echo(index)  # 2, 3
 end
 ```
 
@@ -1007,15 +1007,15 @@ For a payload test followed by `and`, the pattern is tested first. Its bindings 
 ```no-ri
 match result begin
   case .success(data) and data.ready?() do
-    print("Ready")
+    echo("Ready")
   end
 
   case .success(_) do
-    print("Waiting")
+    echo("Waiting")
   end
 
   case .failure(error) do
-    print(error)
+    echo(error)
   end
 end
 ```
@@ -1025,15 +1025,15 @@ end
 ```no-ri
 match input begin
   case %r{/accounts/\d+} do
-    print("Account path")
+    echo("Account path")
   end
 
   case "help" do
-    print("Show help")
+    echo("Show help")
   end
 
   default do
-    print("No match")
+    echo("No match")
   end
 end
 ```
@@ -1041,15 +1041,15 @@ end
 ```no-ri
 match items begin
   case 1 between 4 do
-    print("Exactly [2, 3]")
+    echo("Exactly [2, 3]")
   end
 
   case expected_items do
-    print("Matches the expected array")
+    echo("Matches the expected array")
   end
 
   default do
-    print("Another array")
+    echo("Another array")
   end
 end
 ```
@@ -1118,7 +1118,7 @@ match status begin
   else
     :normal
   end do
-    print("Matches the expected status")
+    echo("Matches the expected status")
   end
 end
 ```
@@ -1129,7 +1129,7 @@ An outer-level trailing `do` closure requires parentheses around the entire call
 for item in (items.filter do |item| -> boolean
   item.active?()
 end) do
-  print(item)
+  echo(item)
 end
 ```
 

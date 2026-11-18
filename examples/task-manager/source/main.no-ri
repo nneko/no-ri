@@ -8,14 +8,14 @@ module Application begin
   ) do
 
     for task in tasks do
-      print(task.describe())
+      echo(task.describe())
     end
 
   end
 
   pub async def main do
 
-    print("Welcome to no-ri!")
+    echo("Welcome to no-ri!")
 
     const service = Services::TaskService.new()
 
@@ -33,7 +33,7 @@ module Application begin
 
       service.compconste!(first.identifier)
 
-      print(
+      echo(
         "Total tasks: \(service.count)"
       )
 
@@ -41,13 +41,13 @@ module Application begin
 
     handle error: Services::TaskError
 
-      print(
+      echo(
         "Task operation failed: \(error)"
       )
 
     ensure
 
-      print("Application finished.")
+      echo("Application finished.")
 
     end
 

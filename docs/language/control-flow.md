@@ -6,9 +6,9 @@ Conditionals, loops, and matching express decisions and repeated work. Condition
 
 ```no-ri
 if age >= 18
-  print("Adult")
+  echo("Adult")
 else
-  print("Minor")
+  echo("Minor")
 end
 ```
 
@@ -21,7 +21,7 @@ const category =
   end
 
 for number in numbers
-  print(number)
+  echo(number)
 end
 
 while counter < 10

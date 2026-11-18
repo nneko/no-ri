@@ -23,10 +23,10 @@ const square = ({ |value: integer| value * value } -> integer)
 ## Void closures
 
 ```no-ri
-numbers.each { |value| print(value) }
+numbers.each { |value| echo(value) }
 
 numbers.each do |value|
-  print(value)
+  echo(value)
 end
 ```
 

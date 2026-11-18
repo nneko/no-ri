@@ -309,11 +309,11 @@ module Application begin
         # their first read if not previously initialized.
 
         var nickname: string?
-        print nickname
+        echo nickname
         nickname = "Ada"
 
         const alias: string?
-        print alias
+        echo alias
 
         # alias is now initialized to nil.
         # It cannot be assigned another value.
@@ -321,7 +321,7 @@ module Application begin
         const display_name: string?
         display_name = "Grace"
 
-        print display_name
+        echo display_name
 
     end
 
@@ -364,10 +364,10 @@ module Application begin
         var name: string = "Ada"
         var message = "Hello, \(name)"
 
-        print signed.to_string()
-        print ratio.to_string()
-        print enabled.to_string()
-        print message
+        echo signed.to_string()
+        echo ratio.to_string()
+        echo enabled.to_string()
+        echo message
 
         # Arithmetic is checked by default.
         # Integer division truncates.
@@ -375,8 +375,8 @@ module Application begin
         var quotient = 10 / 3
         var remainder = 10 % 3
 
-        print quotient
-        print remainder
+        echo quotient
+        echo remainder
 
     end
 
@@ -392,14 +392,14 @@ module Application begin
         var fallback = name ?? "Unknown"
 
         if const actual = name do
-            print actual
+            echo actual
         else do
-            print "No name"
+            echo "No name"
         end
 
         if var editable = name do
             editable = "Grace"
-            print editable
+            echo editable
         end
 
         var description: string? = nil
@@ -407,8 +407,8 @@ module Application begin
 
         var required = name.expect("Name required")
 
-        print fallback
-        print required
+        echo fallback
+        echo required
 
     end
 
@@ -423,8 +423,8 @@ module Application begin
 
         var fixed: array<integer, 3> = [10, 20, 30]
 
-        print fixed[0]
-        print fixed[-1]
+        echo fixed[0]
+        echo fixed[-1]
 
         fixed[1] = 25
 
@@ -436,7 +436,7 @@ module Application begin
         numbers.append(40)
         numbers[0] = 5
 
-        print numbers[-1]
+        echo numbers[-1]
 
 
         # Dynamic heterogeneous list.
@@ -445,8 +445,8 @@ module Application begin
 
         mixed.append("Grace")
 
-        print mixed[0]
-        print mixed[-1]
+        echo mixed[0]
+        echo mixed[-1]
 
 
         # Homogeneous unique set.
@@ -463,7 +463,7 @@ module Application begin
             "Grace" => 98
         }
 
-        print scores["Ada"]
+        echo scores["Ada"]
 
         scores["Ada"] = 100
 
@@ -476,8 +476,8 @@ module Application begin
             active: true
         }
 
-        print person.name
-        print person["age"]
+        echo person.name
+        echo person["age"]
 
         person.age = 37
         person.city = "London"
@@ -493,10 +493,10 @@ module Application begin
             name: "Kingston"
         )
 
-        print location.latitude
-        print location["longitude"]
-        print location[0]
-        print location[-1]
+        echo location.latitude
+        echo location["longitude"]
+        echo location[0]
+        echo location[-1]
 
         location = (
             latitude: 18.0,
@@ -535,9 +535,9 @@ module Application begin
 
         var box = Box<integer>.initial(100)
 
-        print number
-        print text
-        print box.get()
+        echo number
+        echo text
+        echo box.get()
 
     end
 
@@ -573,7 +573,7 @@ module Application begin
 
         var operation = add
 
-        print operation(10, 20)
+        echo operation(10, 20)
 
         # Anonymous closure.
 
@@ -581,22 +581,22 @@ module Application begin
             value * 2
         end
 
-        print apply(10, double)
+        echo apply(10, double)
 
         # Capturing closure.
 
         var triple = make_multiplier(3)
 
-        print triple(10)
+        echo triple(10)
 
         # Function calls.
 
-        print add(10, 20)
-        print add(10, 20) * 2
+        echo add(10, 20)
+        echo add(10, 20) * 2
 
         # Outermost parentheses may be omitted.
 
-        print "Hello"
+        echo "Hello"
 
     end
 
@@ -612,19 +612,19 @@ module Application begin
         switch type(value) begin
 
             case integer do
-                print value * 2
+                echo value * 2
             end
 
             case string do
-                print value
+                echo value
             end
 
             case boolean do
-                print value
+                echo value
             end
 
             default do
-                print "Unsupported type"
+                echo "Unsupported type"
             end
 
         end
@@ -641,19 +641,19 @@ module Application begin
             switch type(item) begin
 
                 case string do
-                    print "\(key): \(item)"
+                    echo "\(key): \(item)"
                 end
 
                 case integer do
-                    print "\(key): \(item * 2)"
+                    echo "\(key): \(item * 2)"
                 end
 
                 case boolean do
-                    print "\(key): \(item)"
+                    echo "\(key): \(item)"
                 end
 
                 default do
-                    print "Unknown"
+                    echo "Unknown"
                 end
 
             end
@@ -672,19 +672,19 @@ module Application begin
         var numbers = [10, 20, 30]
 
         for value in numbers do
-            print value
+            echo value
         end
 
         # Inclusive range.
 
         for index in 0..9 do
-            print index
+            echo index
         end
 
         # Exclusive upper bound.
 
         for index in 0..<10 do
-            print index
+            echo index
         end
 
         var counter = 0
@@ -701,7 +701,7 @@ module Application begin
                 break
             end
 
-            print counter
+            echo counter
 
         end
 
@@ -721,15 +721,15 @@ module Application begin
         switch status begin
 
             case 200 do
-                print "Success"
+                echo "Success"
             end
 
             case 404 do
-                print "Not found"
+                echo "Not found"
             end
 
             default do
-                print "Unknown"
+                echo "Unknown"
             end
 
         end
@@ -740,18 +740,18 @@ module Application begin
         switch status begin
 
             case 200:
-                print "Success"
+                echo "Success"
 
             case 201:
-                print "Successful response"
+                echo "Successful response"
                 break
 
             case 404:
-                print "Not found"
+                echo "Not found"
                 break
 
             default:
-                print "Unknown"
+                echo "Unknown"
 
         end
 
@@ -774,7 +774,7 @@ module Application begin
 
         end
 
-        print message
+        echo message
 
     end
 
@@ -791,13 +791,13 @@ module Application begin
 
         var translated = point.translate(5.0, 10.0)
 
-        print translated.describe()
+        echo translated.describe()
 
         # Compiler-generated initial().
 
         var size = Geo::Size.initial()
 
-        print size.area
+        echo size.area
 
 
         # Entities have reference identity.
@@ -812,27 +812,27 @@ module Application begin
 
         circle.resize!(15.0)
 
-        print same_circle.area()
+        echo same_circle.area()
 
 
         # Variant construction.
 
         var measurement = Geo::Measurement.success(42.0)
 
-        print measurement
+        echo measurement
 
         switch measurement begin
 
             case pending do
-                print "Pending"
+                echo "Pending"
             end
 
             case success(value) do
-                print value
+                echo value
             end
 
             case failure(message) do
-                print message
+                echo message
             end
 
         end
@@ -845,7 +845,7 @@ module Application begin
     # --------------------------------------------------------
 
     def inspect(point: borrow Geo::Point) do
-        print point.x
+        echo point.x
     end
 
     def update!(point: borrow mut Geo::Point) do
@@ -853,7 +853,7 @@ module Application begin
     end
 
     def consume(point: take Geo::Point) do
-        print point.describe()
+        echo point.describe()
     end
 
     def demonstrate_borrowing do
@@ -872,7 +872,7 @@ module Application begin
 
         var first = ref.index(pointer, 0)
 
-        print deref(first).x
+        echo deref(first).x
 
         # After the last active borrow ends, ownership
         # may be transferred.
@@ -940,18 +940,18 @@ module Application begin
         try do
 
             var result = parse_number("42")
-            print result
+            echo result
 
         handle Errors::ParseError.invalid_input do
-            print "Invalid input"
+            echo "Invalid input"
         end
 
         handle Errors::ParseError.out_of_range do
-            print "Out of range"
+            echo "Out of range"
         end
 
         ensure do
-            print "Parsing completed"
+            echo "Parsing completed"
         end
 
     end
@@ -1014,7 +1014,7 @@ module Application begin
             "https://example.com"
         )
 
-        print result
+        echo result
 
     end
 
@@ -1054,8 +1054,8 @@ module Application begin
             var result_a = await first
             var result_b = await second
 
-            print result_a
-            print result_b
+            echo result_a
+            echo result_b
 
         end
 
@@ -1093,7 +1093,7 @@ module Application begin
 
         var result = await task
 
-        print result
+        echo result
 
         await download_both()
 
@@ -1154,7 +1154,7 @@ pub def async main do
 
     await connection.refresh!()
 
-    print connection.active?
+    echo connection.active?
 
 end
 
@@ -1228,18 +1228,17 @@ let value = 42
 async def fetch do
 end
 
-# INVALID: void cannot be named as a return type.
-def perform -> void do
-end
+# INVALID: nothing cannot be assigned. It represents no value and there cannot be associated with a binding
+const result = nothing
 
 # INVALID: executable statement in module body.
 module Invalid begin
-    print "Hello"
+    echo "Hello"
 end
 
 # INVALID: executable statement in protocol body.
 def protocol Invalid begin
-    print "Hello"
+    echo "Hello"
 end
 
 # INVALID: protocol owns no stored state.
@@ -1297,12 +1296,12 @@ fixed.append(4)
 var unique: set<integer> = set(1, 2, 3)
 
 # INVALID: set has no positional indexing.
-print unique[0]
+echo unique[0]
 
 var person: collection = {name: "Ada"}
 
 # INVALID: collection has no positional indexing.
-print person[0]
+echo person[0]
 
 var location = (latitude: 17.97, longitude: -76.79)
 
@@ -1320,15 +1319,15 @@ location.altitude = 100
 var value: any = 42
 
 # INVALID: operation requires integer narrowing.
-print value * 2
+echo value * 2
 
 # VALID narrowing is explicit:
 switch type(value) begin
     case integer do
-        print value * 2
+        echo value * 2
     end
     default do
-        print "Other"
+        echo "Other"
     end
 end
 
@@ -1381,7 +1380,7 @@ var point = Geo::Point.initial(1.0, 2.0)
 consume(point)
 
 # INVALID: use after ownership transfer.
-print point.x
+echo point.x
 
 var raw = Memory::alloc(4096)
 

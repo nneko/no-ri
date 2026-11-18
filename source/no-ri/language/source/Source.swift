@@ -20,7 +20,7 @@ public struct SourceId: Hashable, Sendable, CustomStringConvertible {
         self.digest = SHA256.hash(data: bytes)
     }
 
-    var description: String {
+    public var description: String {
         digest.map {
             String(format: "%02x", $0)
         }.joined()

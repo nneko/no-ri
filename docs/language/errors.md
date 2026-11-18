@@ -24,15 +24,15 @@ try
 
   const result = divide(10.0, 2.0)
 
-  print(result)
+  echo(result)
 
 handle error: DivisionError
 
-  print("Division failed")
+  echo("Division failed")
 
 ensure
 
-  print("Operation complete")
+  echo("Operation complete")
 
 end
 ```

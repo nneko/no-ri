@@ -42,7 +42,7 @@ public enum TokenType: String, Hashable, Sendable, CustomStringConvertible {
     case Variable = "var"
     case Variant = "variant"
     case Symbol = "symbol"
-    case Void = "void"
+    case Nothing = "nothing"
 
     // MARK: - Control Flow keywords
     case Begin = "begin"

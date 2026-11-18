@@ -55,7 +55,7 @@ greet |name: string| -> string do
   "Hello, \(name)"
 end
 
-print(greet("Alice"))
+echo(greet("Alice"))
 ```
 
 A function declaration can start directly with its name. Parameters appear between bars, and executable bodies use `do ... end`. With an explicit `->` result declaration, the final expression or a `return` statement supplies the result. A function without a result declaration returns no value.
@@ -68,6 +68,6 @@ no-ri is developed alongside n-os (a specialized unix inspired operating system)
 
 ## Everyday programming
 
-Global `print`, `print_warn`, and `print_debug` provide configurable output. `Console` is a separate advanced terminal module. Construct value and entity instances with `Type.initial(...)`. Initializers define state and can use property-bound parameters. The complete standard-library API is a specification in development.
+Global `echo`, `warn`, and `debug` provide configurable output. `terminal` is a separate advanced terminal module. Construct value and entity instances with `Type.initial(...)`. Initializers define state and can use property-bound parameters. The complete standard-library API is a specification in development.
 
 Continue with the [design principles](design.md) and [language reference](language/README.md).
